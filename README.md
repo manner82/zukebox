@@ -28,6 +28,25 @@ The easiest way to install most Python packages is via ``easy_install`` or ``pip
 
     $ easy_install zukebox
 
+Installing as a systemd daemon
+------------------------------
+
+Starting automatically with systemd (you might need to modify username/path):
+
+    $ cp -a etc/systemd/system/zukebox.service /etc/systemd/system/zukebox.service 
+    $ chmod 664 /etc/systemd/system/zukebox.service
+    $ systemctl daemon-reload
+    $ systemctl start zukebox   # (optional) try if it works
+    $ systemctl enable zukebox
+
+ZukeBox is started with screen, so eg you can attach to it by:
+
+    $ screen -r
+
+(Make sure you are the same user you are running zukebox with.)
+
+After this, pressing "Ctrl+a" "d" moves it back to the background.
+
 Usage
 -----
 

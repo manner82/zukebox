@@ -1,0 +1,13 @@
+[Unit]
+Description=ZukeBox With Screen
+After=network.target
+
+[Service]
+Type=forking
+User=alarm
+ExecStart=/usr/bin/screen -d -m -S zukebox /home/alarm/zukebox/bin/zukebox
+ExecStop=/usr/bin/killall -w zukebox
+WorkingDirectory=/home/alarm
+
+[Install]
+WantedBy=multi-user.target
